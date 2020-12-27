@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="col-md-6 offset-md-3 " style="padding-top:25%">
+		<div class="row justify-content-center align-self-center">
+			  <form method="POST">
+			  {% csrf_token %}
+			    <h1 class="h3 mb-3 fw-normal">Registration:</h1>
+			    <div class="form-group">
+				    <label for="inputFirstname" class="visually-hidden">First Name</label>
+				    <input type="text" id="inputFirstname" class="form-control" placeholder="First Name" required autofocus name="firstname">
+			    </div>
+			    <div class="form-group">
+				    <label for="inputLastname" class="visually-hidden">Last Name</label>
+				    <input type="text" id="inputLastname" class="form-control" placeholder="Last Name" required autofocus name="lastname">
+			    </div>
+			    <div class="form-group">
+				    <label for="inputUsername" class="visually-hidden">Username</label>
+				    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus name="username">
+			    </div>
+			     <div class="form-group">
+				    <label for="inputEmail" class="visually-hidden">Email</label>
+				    <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus name="email">
+			    </div>
+			    <div class="form-group">
+			    <label for="inputPassword" class="visually-hidden">Password</label>
+			    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
+			     </div>
+			    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+			  </form>
+		</div>
+	</div>
+</div>
+{% endblock content %}

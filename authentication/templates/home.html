@@ -1,0 +1,27 @@
+{% extends "navbar.html" %}
+
+{% block content %}
+<div class="container">
+  
+  <h1>My Topics</h1>
+  
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Topic</th>
+      <th scope="col">Last modified</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for topic in mytopics%}
+    <tr>
+      <td><a href ="../forum/topic/{{topic.pk}}">{{topic.topictitle}}</a></td>
+      <td>{{topic.modifiedtime}}</td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+  
+</div>
+{% endblock content %}

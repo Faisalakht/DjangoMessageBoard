@@ -1,0 +1,38 @@
+
+
+{% extends "navbar.html" %}
+
+{% block content %}
+
+
+ <a  href="{% url 'createtopic' %}" class="btn btn-primary">Create topic</a>
+ 	<div class="row col-xs-4" style="float:right">
+	    <form class="form-inline my-2 my-lg-0" method="POST">
+	    {% csrf_token %}
+	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" value = "{{searchtext}}">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	    </form>
+    </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Created time</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created by</th>
+
+    </tr>
+  </thead>
+  <tbody>
+	{% for topic in topiclist %}
+		  <tr>
+		<th scope="row">{{topic.createdtime}}</th>
+		<th scope="row"><a href="{% url 'topic' id=topic.pk %}">{{topic.topictitle}}</a></th>
+		<th scope="row">{{topic.createdby}}</th>
+
+	    </tr>
+	{% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock content %}
